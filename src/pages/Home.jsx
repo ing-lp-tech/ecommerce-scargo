@@ -1,36 +1,44 @@
-import React from 'react'
-import { products } from '../productsDB'
-import { Link } from 'react-router-dom'
+/* import { products } from "../productsDB"; */
+
+import ChildCareIcon from "@mui/icons-material/ChildCare";
+import { Button } from "@mui/material";
+import { productsScargo } from "../productsScargo";
+import "../styles/products/products.css";
+import Card from "../components/Home/Card";
 
 const Home = () => {
-    
   return (
     <div>
-
-        <h1>Bienvenido a Apple Store</h1>
-        <div>
-            {
-                products.map(({categoria, nombre, id, precio}) =>(
-                    <Card categoria={categoria} nombre={nombre} id={id} precio={precio} key={id}/>
-                ))
-            }
-        </div>
+      <h1>Bienvenido a Scargo Store</h1>
+      <div className="products">
+        {/* {products.map(({ categoria, nombre, id, precio }) => (
+          <Card
+            categoria={categoria}
+            nombre={nombre}
+            id={id}
+            precio={precio}
+            key={id}
+          />
+        ))} */}
+        {productsScargo.map(
+          ({ category, title, id, price, description, images }) => (
+            <Card
+              categoria={category}
+              nombre={title}
+              id={id}
+              precio={price}
+              key={id}
+              description={description}
+              images={images}
+            />
+          )
+        )}
+      </div>
+      <Button>
+        click <ChildCareIcon />
+      </Button>
     </div>
-  )
-}
+  );
+};
 
-export default Home
-
-
-const Card = ({categoria, nombre, precio, id}) => {
-    return (
-        <div>
-            <h3>{categoria}</h3>
-            <h2>{nombre}</h2>
-            <span>${precio}</span>
-            <Link to={'/detail/' + id }>Ver detalle</Link>
-        </div>
-    )
-}
-
-export {Card} 
+export default Home;

@@ -1,0 +1,30 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+} */
+
+header {
+  width: 100vw;
+  background-color: #22cffa;
+  /* display: flex; */
+  /* justify-content: center;
+  background-color: #fff159;
+  height: 40px; */
+  /*  width: 100vh; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  width: 20vw;
+  gap: 20px;
+}
+.links ul {
+  display: flex;
+  width: 35vw;
+  justify-content: space-around;
+}
