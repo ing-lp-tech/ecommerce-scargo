@@ -12,7 +12,7 @@ export const productsScargo = [
     category: "laptops",
     thumbnail: "https://i.dummyjson.com/data/products/6/thumbnail.png",
     images: [
-      "https://i.dummyjson.com/data/products/6/1.png",
+      "/productos/1.jpeg",
       "https://i.dummyjson.com/data/products/6/2.jpg",
       "https://i.dummyjson.com/data/products/6/3.png",
       "https://i.dummyjson.com/data/products/6/4.jpg",
@@ -31,7 +31,7 @@ export const productsScargo = [
     category: "smartphones",
     thumbnail: "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
     images: [
-      "https://i.dummyjson.com/data/products/2/1.jpg",
+      "/productos/2.jpeg",
       "https://i.dummyjson.com/data/products/2/2.jpg",
       "https://i.dummyjson.com/data/products/2/3.jpg",
       "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
@@ -49,7 +49,7 @@ export const productsScargo = [
     brand: "Samsung",
     category: "smartphones",
     thumbnail: "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-    images: ["https://i.dummyjson.com/data/products/3/1.jpg"],
+    images: ["/productos/3.jpeg"],
   },
   {
     id: 4,
@@ -63,7 +63,7 @@ export const productsScargo = [
     category: "smartphones",
     thumbnail: "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
     images: [
-      "https://i.dummyjson.com/data/products/4/1.jpg",
+      "/productos/4.jpeg",
       "https://i.dummyjson.com/data/products/4/2.jpg",
       "https://i.dummyjson.com/data/products/4/3.jpg",
       "https://i.dummyjson.com/data/products/4/4.jpg",
@@ -83,7 +83,7 @@ export const productsScargo = [
     category: "smartphones",
     thumbnail: "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
     images: [
-      "https://i.dummyjson.com/data/products/5/1.jpg",
+      "/productos/5.jpeg",
       "https://i.dummyjson.com/data/products/5/2.jpg",
       "https://i.dummyjson.com/data/products/5/3.jpg",
     ],
@@ -101,7 +101,7 @@ export const productsScargo = [
     category: "laptops",
     thumbnail: "https://i.dummyjson.com/data/products/7/thumbnail.jpg",
     images: [
-      "https://i.dummyjson.com/data/products/7/1.jpg",
+      "/productos/6.jpeg",
       "https://i.dummyjson.com/data/products/7/2.jpg",
       "https://i.dummyjson.com/data/products/7/3.jpg",
       "https://i.dummyjson.com/data/products/7/thumbnail.jpg",
@@ -119,7 +119,7 @@ export const productsScargo = [
     category: "smartphones",
     thumbnail: "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
     images: [
-      "https://i.dummyjson.com/data/products/1/1.jpg",
+      "/productos/7.jpeg",
       "https://i.dummyjson.com/data/products/1/2.jpg",
       "https://i.dummyjson.com/data/products/1/3.jpg",
       "https://i.dummyjson.com/data/products/1/4.jpg",
@@ -139,7 +139,7 @@ export const productsScargo = [
     category: "laptops",
     thumbnail: "https://i.dummyjson.com/data/products/8/thumbnail.jpg",
     images: [
-      "https://i.dummyjson.com/data/products/8/1.jpg",
+      "/productos/8.jpeg",
       "https://i.dummyjson.com/data/products/8/2.jpg",
       "https://i.dummyjson.com/data/products/8/3.jpg",
       "https://i.dummyjson.com/data/products/8/4.jpg",
@@ -159,7 +159,7 @@ export const productsScargo = [
     category: "laptops",
     thumbnail: "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
     images: [
-      "https://i.dummyjson.com/data/products/9/1.jpg",
+      "/productos/9.jpeg",
       "https://i.dummyjson.com/data/products/9/2.png",
       "https://i.dummyjson.com/data/products/9/3.png",
       "https://i.dummyjson.com/data/products/9/4.jpg",
@@ -179,7 +179,7 @@ export const productsScargo = [
     category: "laptops",
     thumbnail: "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
     images: [
-      "https://i.dummyjson.com/data/products/10/1.jpg",
+      "/productos/10.jpeg",
       "https://i.dummyjson.com/data/products/10/2.jpg",
       "https://i.dummyjson.com/data/products/10/3.jpg",
       "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
@@ -198,7 +198,7 @@ export const productsScargo = [
     category: "fragrances",
     thumbnail: "https://i.dummyjson.com/data/products/11/thumbnail.jpg",
     images: [
-      "https://i.dummyjson.com/data/products/11/1.jpg",
+      "/productos/11.jpeg",
       "https://i.dummyjson.com/data/products/11/2.jpg",
       "https://i.dummyjson.com/data/products/11/3.jpg",
       "https://i.dummyjson.com/data/products/11/thumbnail.jpg",
@@ -216,7 +216,7 @@ export const productsScargo = [
     category: "fragrances",
     thumbnail: "https://i.dummyjson.com/data/products/12/thumbnail.jpg",
     images: [
-      "https://i.dummyjson.com/data/products/12/1.jpg",
+      "/productos/12.jpeg",
       "https://i.dummyjson.com/data/products/12/2.jpg",
       "https://i.dummyjson.com/data/products/12/3.png",
       "https://i.dummyjson.com/data/products/12/4.jpg",
@@ -236,7 +236,7 @@ export const productsScargo = [
     category: "fragrances",
     thumbnail: "https://i.dummyjson.com/data/products/13/thumbnail.webp",
     images: [
-      "https://i.dummyjson.com/data/products/13/1.jpg",
+      "/productos/1.jpeg",
       "https://i.dummyjson.com/data/products/13/2.png",
       "https://i.dummyjson.com/data/products/13/3.jpg",
       "https://i.dummyjson.com/data/products/13/4.jpg",
@@ -256,7 +256,7 @@ export const productsScargo = [
     category: "fragrances",
     thumbnail: "https://i.dummyjson.com/data/products/14/thumbnail.jpg",
     images: [
-      "https://i.dummyjson.com/data/products/14/1.jpg",
+      "/productos/1.jpeg",
       "https://i.dummyjson.com/data/products/14/2.jpg",
       "https://i.dummyjson.com/data/products/14/3.jpg",
       "https://i.dummyjson.com/data/products/14/thumbnail.jpg",
@@ -275,7 +275,7 @@ export const productsScargo = [
     category: "fragrances",
     thumbnail: "https://i.dummyjson.com/data/products/15/thumbnail.jpg",
     images: [
-      "https://i.dummyjson.com/data/products/15/1.jpg",
+      "/productos/1.jpeg",
       "https://i.dummyjson.com/data/products/15/2.jpg",
       "https://i.dummyjson.com/data/products/15/3.jpg",
       "https://i.dummyjson.com/data/products/15/4.jpg",
@@ -295,7 +295,7 @@ export const productsScargo = [
     category: "skincare",
     thumbnail: "https://i.dummyjson.com/data/products/16/thumbnail.jpg",
     images: [
-      "https://i.dummyjson.com/data/products/16/1.png",
+      "/productos/1.jpeg",
       "https://i.dummyjson.com/data/products/16/2.webp",
       "https://i.dummyjson.com/data/products/16/3.jpg",
       "https://i.dummyjson.com/data/products/16/4.jpg",
@@ -315,7 +315,7 @@ export const productsScargo = [
     category: "skincare",
     thumbnail: "https://i.dummyjson.com/data/products/17/thumbnail.jpg",
     images: [
-      "https://i.dummyjson.com/data/products/17/1.jpg",
+      "/productos/1.jpeg",
       "https://i.dummyjson.com/data/products/17/2.jpg",
       "https://i.dummyjson.com/data/products/17/3.jpg",
       "https://i.dummyjson.com/data/products/17/thumbnail.jpg",
@@ -334,7 +334,7 @@ export const productsScargo = [
     category: "skincare",
     thumbnail: "https://i.dummyjson.com/data/products/18/thumbnail.jpg",
     images: [
-      "https://i.dummyjson.com/data/products/18/1.jpg",
+      "/productos/1.jpeg",
       "https://i.dummyjson.com/data/products/18/2.jpg",
       "https://i.dummyjson.com/data/products/18/3.jpg",
       "https://i.dummyjson.com/data/products/18/4.jpg",
@@ -354,7 +354,7 @@ export const productsScargo = [
     category: "skincare",
     thumbnail: "https://i.dummyjson.com/data/products/19/thumbnail.jpg",
     images: [
-      "https://i.dummyjson.com/data/products/19/1.jpg",
+      "/productos/1.jpeg",
       "https://i.dummyjson.com/data/products/19/2.jpg",
       "https://i.dummyjson.com/data/products/19/3.png",
       "https://i.dummyjson.com/data/products/19/thumbnail.jpg",
@@ -373,7 +373,7 @@ export const productsScargo = [
     category: "skincare",
     thumbnail: "https://i.dummyjson.com/data/products/20/thumbnail.jpg",
     images: [
-      "https://i.dummyjson.com/data/products/20/1.jpg",
+      "/productos/1.jpeg",
       "https://i.dummyjson.com/data/products/20/2.jpg",
       "https://i.dummyjson.com/data/products/20/3.jpg",
       "https://i.dummyjson.com/data/products/20/4.jpg",

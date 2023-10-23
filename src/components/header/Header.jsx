@@ -9,49 +9,33 @@ import PersonIcon from "@mui/icons-material/Person";
 
 import "../../styles/header/header.css";
 import ChildCareIcon from "@mui/icons-material/ChildCare";
-
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: "auto",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(3),
-    width: "25vw",
-  },
-}));
-
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("md")]: {
-      width: "20ch",
-    },
-  },
-}));
+import { useEffect, useState } from "react";
+import { productsScargo } from "../../productsScargo";
+import { useGlobalContext } from "../../context/GlobalContextProvider";
 
 const Header = () => {
   /* const { nombre } = useGlobalContext(); */
+  const [searchString, setSearchString] = useState("");
+  const [listaProductos, setListaProductos] = useState(productsScargo);
+
+  const { productsSearch } = useGlobalContext();
+
+  const handleFilterProducto = (evento) => {
+    setSearchString(evento.target.value);
+  };
+
+  useEffect(() => {
+    console.log("me ejecuto");
+
+    setListaProductos(
+      productsScargo.filter((producto) =>
+        producto.title.toLowerCase().includes(searchString.toLowerCase())
+      )
+    );
+    productsSearch(listaProductos);
+  }, [searchString]);
+
+  console.log("listaProductos: ", listaProductos);
   return (
     <>
       <header className="header">
@@ -70,6 +54,8 @@ const Header = () => {
               <StyledInputBase
                 placeholder="Search…"
                 inputProps={{ "aria-label": "search" }}
+                value={searchString}
+                onChange={handleFilterProducto}
               />
             </Search>
           </Toolbar>
@@ -122,3 +108,43 @@ const Header = () => {
 };
 
 export default Header;
+
+const Search = styled("div")(({ theme }) => ({
+  position: "relative",
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  "&:hover": {
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
+  },
+  marginRight: theme.spacing(2),
+  marginLeft: 0,
+  width: "auto",
+  [theme.breakpoints.up("sm")]: {
+    marginLeft: theme.spacing(3),
+    width: "25vw",
+  },
+}));
+
+const SearchIconWrapper = styled("div")(({ theme }) => ({
+  padding: theme.spacing(0, 2),
+  height: "100%",
+  position: "absolute",
+  pointerEvents: "none",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+}));
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: "inherit",
+  "& .MuiInputBase-input": {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create("width"),
+    width: "100%",
+    [theme.breakpoints.up("md")]: {
+      width: "20ch",
+    },
+  },
+}));

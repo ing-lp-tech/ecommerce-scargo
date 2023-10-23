@@ -1,5 +1,5 @@
 import { useContext, createContext, useState } from "react";
-import { products } from "../productsDB";
+/* import { products } from "../productsDB"; */
 import { productsScargo } from "../productsScargo";
 
 const GlobalContext = createContext();
@@ -7,6 +7,7 @@ const GlobalContext = createContext();
 // eslint-disable-next-line react/prop-types
 const GlobalContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [prodSearch, setProdSearch] = useState([]);
 
   const handleAddProduct = (id) => {
     const productFound = productsScargo.find(
@@ -27,10 +28,16 @@ const GlobalContextProvider = ({ children }) => {
     }
   };
 
+  const productsSearch = (prod) => {
+    setProdSearch(prod);
+  };
+
   const nombre = "luis";
   console.log(cart);
   return (
-    <GlobalContext.Provider value={{ handleAddProduct, nombre }}>
+    <GlobalContext.Provider
+      value={{ handleAddProduct, productsSearch, prodSearch, nombre, cart }}
+    >
       {children}
     </GlobalContext.Provider>
   );

@@ -15,14 +15,16 @@ const ProductDetail = () => {
   return (
     <div>
       {productFound ? (
-        <>
-          <h2>{productFound.nombre}</h2>
-          <img src={productFound.images[0]} />
-          <span>Precio: ${productFound.precio}</span>
-          <button onClick={() => handleAddProduct(productFound.id)}>
-            Añadir al carrito
-          </button>
-        </>
+        <div className="produtsDetail">
+          <div>
+            <h2>{productFound.nombre}</h2>
+            <img src={productFound.images[0]} />
+            <span>Precio: ${productFound.precio}</span>
+            <button onClick={() => handleAddProduct(productFound.id)}>
+              Añadir al carrito
+            </button>
+          </div>
+        </div>
       ) : (
         <Error404 mensaje={"El producto buscado no existe"} />
       )}

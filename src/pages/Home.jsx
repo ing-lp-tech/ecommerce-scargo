@@ -1,15 +1,20 @@
 /* import { products } from "../productsDB"; */
-
+/* 
 import ChildCareIcon from "@mui/icons-material/ChildCare";
 import { Button } from "@mui/material";
-import { productsScargo } from "../productsScargo";
+import { productsScargo } from "../productsScargo"; */
 import "../styles/products/products.css";
 import Card from "../components/Home/Card";
+import { useGlobalContext } from "../context/GlobalContextProvider";
+import CartBuy from "../components/Home/CartBuy";
 
 const Home = () => {
+  const { prodSearch } = useGlobalContext();
   return (
     <div>
       <h1>Bienvenido a Scargo Store</h1>
+      <CartBuy />
+
       <div className="products">
         {/* {products.map(({ categoria, nombre, id, precio }) => (
           <Card
@@ -20,7 +25,7 @@ const Home = () => {
             key={id}
           />
         ))} */}
-        {productsScargo.map(
+        {prodSearch.map(
           ({ category, title, id, price, description, images }) => (
             <Card
               categoria={category}
@@ -34,9 +39,9 @@ const Home = () => {
           )
         )}
       </div>
-      <Button>
+      {/* <Button>
         click <ChildCareIcon />
-      </Button>
+      </Button> */}
     </div>
   );
 };
