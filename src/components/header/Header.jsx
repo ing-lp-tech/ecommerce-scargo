@@ -6,6 +6,7 @@ import InputBase from "@mui/material/InputBase";
 import Toolbar from "@mui/material/Toolbar";
 import { Link } from "react-router-dom";
 import PersonIcon from "@mui/icons-material/Person";
+import MenuIcon from "@mui/icons-material/Menu";
 
 import "../../styles/header/header.css";
 import ChildCareIcon from "@mui/icons-material/ChildCare";
@@ -18,7 +19,13 @@ const Header = () => {
   const [searchString, setSearchString] = useState("");
   const [listaProductos, setListaProductos] = useState(productsScargo);
 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const { productsSearch } = useGlobalContext();
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   const handleFilterProducto = (evento) => {
     setSearchString(evento.target.value);
@@ -38,7 +45,64 @@ const Header = () => {
   console.log("listaProductos: ", listaProductos);
   return (
     <>
-      <header className="header">
+      <header>
+        <div className="container">
+          <div className="header-content">
+            <div className="logo">
+              <Link to={"/home"}>
+                <h1>
+                  Scargo
+                  <ChildCareIcon />
+                </h1>
+              </Link>
+            </div>
+            {/* <input
+              type="text"
+              placeholder="Buscar..."
+              className="search-input"
+            /> */}
+            <div>
+              <Toolbar>
+                <Search>
+                  <SearchIconWrapper>
+                    <SearchIcon />
+                  </SearchIconWrapper>
+                  <StyledInputBase
+                    placeholder="Search…"
+                    inputProps={{ "aria-label": "search" }}
+                    value={searchString}
+                    onChange={handleFilterProducto}
+                  />
+                </Search>
+              </Toolbar>
+            </div>
+            <div className="menu-toggle" onClick={toggleMobileMenu}>
+              <MenuIcon fontSize="large" />
+            </div>
+            <div>
+              <nav className={`nav ${isMobileMenuOpen ? "open" : ""}`}>
+                <ul>
+                  <li>
+                    <Link to={"/comoComprar"}>COMO COMPRAR</Link>
+                  </li>
+                  <li>
+                    <Link to={"/faq"}>FAQ</Link>
+                  </li>
+                  <li>
+                    <Link to={"/faq"}>CONTACTO</Link>
+                  </li>
+                  <li>
+                    <Link to={"/ingresar"}>
+                      <PersonIcon />
+                    </Link>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </header>
+      {/*  <header className="header">
         <div className="logo">
           <Link to={"/home"}>
             <ChildCareIcon />
@@ -79,7 +143,7 @@ const Header = () => {
             </li>
           </ul>
         </div>
-      </header>
+      </header> */}
       {/* <header>
         <img src={shield} />
         <h1>{nombre}</h1>
@@ -118,10 +182,10 @@ const Search = styled("div")(({ theme }) => ({
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
-  width: "auto",
+  width: "50vw",
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(3),
-    width: "25vw",
+    width: "35vw",
   },
 }));
 

@@ -2,14 +2,17 @@
 /* import viteLogo from "/vite.svg"; */
 
 import PageRouter from "./router/PageRouter";
-import { Header } from "./components";
+import { Header, Footer } from "./components";
 import "./App.css";
 
 function App() {
   return (
     <>
       <Header />
-      <PageRouter />
+      <div className="pages">
+        <PageRouter />
+      </div>
+      <Footer />
     </>
   );
 }

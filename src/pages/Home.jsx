@@ -12,7 +12,7 @@ const Home = () => {
   const { prodSearch } = useGlobalContext();
   return (
     <div>
-      <h1>Bienvenido a Scargo Store</h1>
+      <h1>Bienvenidos a Scargo Store</h1>
       <CartBuy />
 
       <div className="products">

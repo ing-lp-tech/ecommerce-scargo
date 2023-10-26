@@ -1,15 +1,14 @@
 export const productsScargo = [
   {
     id: 1,
-    title: "MacBook Pro",
-    description:
-      "MacBook Pro 2021 with mini-LED display may launch between September, November",
+    title: "Wide Leg",
+    description: "Pantalon de beba Wide Leg, Talles 1 al 6",
     price: 1749,
     discountPercentage: 11.02,
     rating: 4.57,
     stock: 83,
     brand: "Apple",
-    category: "laptops",
+    category: "bebes",
     thumbnail: "https://i.dummyjson.com/data/products/6/thumbnail.png",
     images: [
       "/productos/1.jpeg",
@@ -20,15 +19,14 @@ export const productsScargo = [
   },
   {
     id: 2,
-    title: "iPhone X",
-    description:
-      "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+    title: "Campera azul",
+    description: "Campera azul de niños elastizada, talles 4-16 ",
     price: 899,
     discountPercentage: 17.94,
     rating: 4.44,
     stock: 34,
     brand: "Apple",
-    category: "smartphones",
+    category: "niños",
     thumbnail: "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
     images: [
       "/productos/2.jpeg",
@@ -39,15 +37,14 @@ export const productsScargo = [
   },
   {
     id: 3,
-    title: "Samsung Universe 9",
-    description:
-      "Samsung's new variant which goes beyond Galaxy to the Universe",
+    title: "Cargo niña elastizado",
+    description: "Cargo con puño elastizado de niñas, talles 4-16",
     price: 1249,
     discountPercentage: 15.46,
     rating: 4.09,
     stock: 36,
     brand: "Samsung",
-    category: "smartphones",
+    category: "niñas",
     thumbnail: "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
     images: ["/productos/3.jpeg"],
   },

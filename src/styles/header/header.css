@@ -5,19 +5,19 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 } */
 
-header {
+/* header {
   width: 100vw;
-  background-color: #22cffa;
-  /* display: flex; */
-  /* justify-content: center;
+  background-color: #22cffa; */
+/* display: flex; */
+/* justify-content: center;
   background-color: #fff159;
   height: 40px; */
-  /*  width: 100vh; */
-  display: flex;
+/*  width: 100vh; */
+/* display: flex;
   justify-content: space-around;
   align-items: center;
-}
-.logo {
+} */
+/* .logo {
   display: flex;
   align-items: center;
   width: 20vw;
@@ -27,4 +27,137 @@ header {
   display: flex;
   width: 35vw;
   justify-content: space-around;
+} */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2; /* Asegura que el encabezado esté en la parte superior de todo */
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  width: 20vw;
+  gap: 20px;
+}
+.logo :first-child {
+  text-decoration: none;
+  font-size: 40px;
+}
+
+.logo h1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  margin: 0 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.nav {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.nav ul {
+  display: flex;
+  align-items: center;
+}
+
+.nav li {
+  margin-right: 20px;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.menu-toggle svg {
+  font-size: 24px;
+  color: #fff;
+}
+
+.open {
+  display: block;
+}
+
+.nav.open {
+  display: block;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: #333;
+}
+
+.nav.open ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.nav.open li {
+  text-align: center;
+  padding: 10px;
+  border-top: 1px solid #555;
+}
+
+.nav.open a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Media queries para dispositivos móviles y tabletas */
+@media screen and (max-width: 768px) {
+  .search-input {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+  .nav {
+    display: none;
+  }
+
+  .logo :first-child {
+    text-decoration: none;
+    font-size: 20px;
+  }
 }

@@ -11,11 +11,8 @@ import { Link } from "react-router-dom";
 // eslint-disable-next-line react/prop-types
 function CartItem({ nombre, precio, id, description, images }) {
   return (
-    <div>
-      {/*  <div className="wave"> */}
-      {/* <h3>{categoria}</h3> */}
+    <div className="cartItem">
       <h2>{nombre}</h2>
-
       <img src={images[0]} />
       <h5>${precio}</h5>
       <h4>{description}</h4>
@@ -39,9 +36,8 @@ const CartBuy = () => {
       <input id={cartCheckboxId} type="checkbox" />
       <aside className="cart">
         <ul>
-          {cart.map(({ category, title, id, price, description, images }) => (
+          {cart.map(({ title, id, price, description, images }) => (
             <CartItem
-              categoria={category}
               nombre={title}
               id={id}
               precio={price}
