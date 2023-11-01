@@ -13,6 +13,7 @@ import ChildCareIcon from "@mui/icons-material/ChildCare";
 import { useEffect, useState } from "react";
 import { productsScargo } from "../../productsScargo";
 import { useGlobalContext } from "../../context/GlobalContextProvider";
+import CartBuy from "../Home/CartBuy.jsx";
 
 const Header = () => {
   /* const { nombre } = useGlobalContext(); */
@@ -46,7 +47,7 @@ const Header = () => {
   return (
     <>
       <header>
-        <div className="container">
+        <div className="containerHeader">
           <div className="header-content">
             <div className="logo">
               <Link to={"/home"}>
@@ -99,6 +100,7 @@ const Header = () => {
                 </ul>
               </nav>
             </div>
+            <CartBuy />
           </div>
         </div>
       </header>
@@ -180,12 +182,12 @@ const Search = styled("div")(({ theme }) => ({
   "&:hover": {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
-  marginRight: theme.spacing(2),
+  marginRight: theme.spacing(0),
   marginLeft: 0,
   width: "50vw",
   [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(3),
-    width: "35vw",
+    marginLeft: theme.spacing(0),
+    width: "25vw",
   },
 }));
 
@@ -204,11 +206,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    paddingLeft: `calc(1em + ${theme.spacing(1)})`,
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("md")]: {
-      width: "20ch",
+      width: "25ch",
     },
   },
 }));

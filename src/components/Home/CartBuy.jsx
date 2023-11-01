@@ -33,7 +33,7 @@ const CartBuy = () => {
       <label className="cart-button" htmlFor={cartCheckboxId}>
         <CartIcon />
       </label>
-      <input id={cartCheckboxId} type="checkbox" />
+      <input className="inputCar" id={cartCheckboxId} type="checkbox" />
       <aside className="cart">
         <ul>
           {cart.map(({ title, id, price, description, images }) => (

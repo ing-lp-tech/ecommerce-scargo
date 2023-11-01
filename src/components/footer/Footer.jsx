@@ -1,13 +1,19 @@
 import "../../styles/footer/footer.css";
-
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
           <div className="footer-section">
-            <h2>Ubicación</h2>
-            <p>Dirección: Calle Principal, Ciudad</p>
+            <h2>Galeria Camino de la ciudad, Local 10</h2>
+            <p>Dirección: Bogotá 3219, Flores</p>
+            <Link to={"https://maps.app.goo.gl/J1FWDbGwSqTT5VbcA"}>
+              <LocationOnIcon sx={{ color: "#09f" }} />
+            </Link>
           </div>
           <div className="footer-section">
             <h2>Contacto</h2>
@@ -18,19 +24,23 @@ const Footer = () => {
             <h2>Redes Sociales</h2>
             <ul className="social-icons">
               <li>
-                <a href="#">
-                  <i className="fab fa-facebook"></i>
-                </a>
+                <Link to={"https://maps.app.goo.gl/J1FWDbGwSqTT5VbcA"}>
+                  <InstagramIcon />
+                </Link>
               </li>
               <li>
-                <a href="#">
-                  <i className="fab fa-twitter"></i>
-                </a>
+                <Link
+                  to={
+                    "https://www.facebook.com/p/Scargo-Jeans-100063442737076/"
+                  }
+                >
+                  <FacebookIcon />
+                </Link>
               </li>
               <li>
-                <a href="#">
-                  <i className="fab fa-instagram"></i>
-                </a>
+                <Link to={"https://maps.app.goo.gl/J1FWDbGwSqTT5VbcA"}>
+                  <InstagramIcon />
+                </Link>
               </li>
             </ul>
           </div>
@@ -52,13 +62,19 @@ const Footer = () => {
             <h2>Preguntas Frecuentes</h2>
             <ul>
               <li>
-                <a href="#">¿Cómo realizar un pedido?</a>
+                <Link to={"https://maps.app.goo.gl/J1FWDbGwSqTT5VbcA"}>
+                  ¿Cómo realizar un pedido?
+                </Link>
               </li>
               <li>
-                <a href="#">Política de devoluciones</a>
+                <Link to={"https://maps.app.goo.gl/J1FWDbGwSqTT5VbcA"}>
+                  Política de devoluciones
+                </Link>
               </li>
               <li>
-                <a href="#">Términos y condiciones</a>
+                <Link to={"https://maps.app.goo.gl/J1FWDbGwSqTT5VbcA"}>
+                  Términos y condiciones
+                </Link>
               </li>
             </ul>
           </div>

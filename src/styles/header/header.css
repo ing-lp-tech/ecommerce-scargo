@@ -39,7 +39,7 @@ header {
   z-index: 2; /* Asegura que el encabezado esté en la parte superior de todo */
 }
 
-.container {
+.containerHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -48,7 +48,7 @@ header {
 .header-content {
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 95%;
   justify-content: space-around;
 }
 
@@ -57,8 +57,9 @@ header {
   font-weight: bold;
   display: flex;
   align-items: center;
-  width: 20vw;
-  gap: 20px;
+
+  /* width: 20vw;
+  gap: 20px; */
 }
 .logo :first-child {
   text-decoration: none;
@@ -70,6 +71,7 @@ header {
   flex-direction: row;
   align-items: center;
   gap: 10px;
+  color: #09f;
 }
 
 .search-input {

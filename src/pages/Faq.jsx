@@ -1,9 +1,10 @@
-import React from "react";
-
+import FaqComponent from "../components/faq/FaqComponent";
 const Faq = () => {
   return (
     <div>
-      <h4>faq</h4>
+      <h1>¡Preguntas mas frecuentes!</h1>
+      <img src="/imagenes/como-comprar.png" alt="" />
+      <FaqComponent />
     </div>
   );
 };
