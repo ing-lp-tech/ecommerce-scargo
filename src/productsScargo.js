@@ -24,7 +24,7 @@ export const productsScargo = [
     title: "Campera azul",
     description: "Campera azul de niños elastizada, talles 4-16 ",
     price: 899,
-    talles: [1, 2, 3, 4, 5, 6],
+    talles: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     colores: ["azul", "negro", "gris", "rosa"],
     discountPercentage: 17.94,
     rating: 4.44,

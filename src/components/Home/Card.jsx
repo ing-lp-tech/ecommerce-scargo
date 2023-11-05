@@ -8,7 +8,7 @@ const Card = ({ categoria, nombre, precio, id, description, images }) => {
       {/* <h3>{categoria}</h3> */}
       <h2>{nombre}</h2>
       <img src={images[0]} />
-      <h3>${precio}</h3>
+      <h4>${precio}</h4>
       <Link to={"/detail/" + id}>Ver detalle</Link>
       {/* </div> */}
     </div>

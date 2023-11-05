@@ -17,7 +17,7 @@ const Footer = () => {
           </div>
           <div className="footer-section">
             <h2>Contacto</h2>
-            <p>Teléfono: (123) 456-7890</p>
+            <p>Teléfono: (+549) 1162020911</p>
             <p>Correo Electrónico: info@tutienda.com</p>
           </div>
           <div className="footer-section">

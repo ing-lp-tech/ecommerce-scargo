@@ -90,7 +90,7 @@ const Header = () => {
                     <Link to={"/faq"}>FAQ</Link>
                   </li>
                   <li>
-                    <Link to={"/faq"}>CONTACTO</Link>
+                    <Link to={"/contact"}>CONTACTO</Link>
                   </li>
                   <li>
                     <Link to={"/ingresar"}>

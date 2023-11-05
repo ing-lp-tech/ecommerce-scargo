@@ -6,15 +6,22 @@ import { productsScargo } from "../productsScargo"; */
 import "../styles/home/products.css";
 import Card from "../components/Home/Card";
 import { useGlobalContext } from "../context/GlobalContextProvider";
+import Carousel from "../components/Home/Carousel";
 /* import CartBuy from "../components/Home/CartBuy"; */
 
 const Home = () => {
   const { prodSearch } = useGlobalContext();
   return (
-    <div>
-      <h1>Bienvenidos a Scargo Store</h1>
-      {/*  <CartBuy /> */}
+    <div className="home">
+      {/*   <h1>Bienvenidos a Scargo Store</h1> */}
+      <img
+        className="imageBienvenidos"
+        src="/imagenes/bienvenidos.png"
+        alt=""
+      />
 
+      {/*  <CartBuy /> */}
+      <Carousel />
       <div className="products">
         {/* {products.map(({ categoria, nombre, id, precio }) => (
           <Card

@@ -1,3 +1,13 @@
+/* .home {
+  margin-top: 30px;
+} */
+.imageBienvenidos {
+  height: 20vh;
+}
+.home h1 {
+  margin: 5vh 0 6vh;
+}
+
 .products {
   width: 100%;
   display: flex;
@@ -8,10 +18,10 @@
 }
 .card {
   width: 35vh;
-  max-height: 50vh;
+  /* max-height: 50vh; */
   margin: 10px 20px;
   background-color: white;
-  padding: 20px;
+  padding: 10px 20px;
   border-radius: 20px;
   box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.973);
 }
@@ -27,12 +37,18 @@
 }
 
 .card h2 {
-  margin-bottom: 10%;
+  margin-bottom: 5%;
+  font-size: 1rem;
 }
 
 .card img {
   height: 70%;
   max-width: 100%;
+}
+
+.card h4 {
+  margin-bottom: 5%;
+  font-size: 10px;
 }
 /* 
 .wave {
