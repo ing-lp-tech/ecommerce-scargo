@@ -4,20 +4,18 @@ import { useId } from "react";
 import { CartIcon } from "../Icons";
 
 import { useGlobalContext } from "../../context/GlobalContextProvider";
-import { Link } from "react-router-dom";
 
 /* import { useCart } from "../hooks/useCart.js"; */
 
 // eslint-disable-next-line react/prop-types
-function CartItem({ nombre, precio, id, description, images }) {
+function CartItem({ nombre, precio, images, quantity }) {
   return (
     <div className="cartItem">
-      <h2>{nombre}</h2>
+      <h4>{nombre}</h4>
       <img src={images[0]} />
-      <h5>${precio}</h5>
-      <h4>{description}</h4>
-      <Link to={"/detail/" + id}>Ver detalle</Link>
-      {/* </div> */}
+      <h5>Cantidad:{quantity}</h5>
+      <h5>Total:${precio * quantity}</h5>
+      {/* <Link to={"/detail/" + id}>Ver detalle</Link> */}
     </div>
   );
 }
@@ -28,6 +26,8 @@ const CartBuy = () => {
 
   const { cart } = useGlobalContext();
 
+  console.log("cart:", cart);
+
   return (
     <>
       <label className="cart-button" htmlFor={cartCheckboxId}>
@@ -35,8 +35,9 @@ const CartBuy = () => {
       </label>
       <input className="inputCar" id={cartCheckboxId} type="checkbox" />
       <aside className="cart">
+        <h4>Carrito</h4>
         <ul>
-          {cart.map(({ title, id, price, description, images }) => (
+          {cart.map(({ title, id, price, description, images, quantity }) => (
             <CartItem
               nombre={title}
               id={id}
@@ -44,6 +45,7 @@ const CartBuy = () => {
               key={id}
               description={description}
               images={images}
+              quantity={quantity}
             />
           ))}
         </ul>

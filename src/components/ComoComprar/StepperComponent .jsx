@@ -51,16 +51,17 @@ const StepperComponent = () => {
                 <Button
                   variant="contained"
                   color="primary"
+                  disabled={activeStep === 2}
                   onClick={handleNext}
                 >
-                  {activeStep === steps.length - 1 ? "Comprar" : "Siguiente"}
+                  {activeStep === steps.length - 1 ? "Fin" : "Siguiente"}
                 </Button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      {activeStep === steps.length && (
+      {activeStep === steps.length - 1 && (
         <div className="compraCompleta">
           <h2>Asi de simple ralizas tu compra !!!</h2>
         </div>

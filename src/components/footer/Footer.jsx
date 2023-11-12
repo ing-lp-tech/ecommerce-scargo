@@ -18,7 +18,7 @@ const Footer = () => {
           <div className="footer-section">
             <h2>Contacto</h2>
             <p>Teléfono: (+549) 1162020911</p>
-            <p>Correo Electrónico: info@tutienda.com</p>
+            <p>Correo Electrónico: scargo@gmail.com</p>
           </div>
           <div className="footer-section">
             <h2>Redes Sociales</h2>
@@ -44,7 +44,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="footer-section">
+          {/* <div className="footer-section">
             <h2>Categorías de Productos</h2>
             <ul>
               <li>
@@ -57,24 +57,18 @@ const Footer = () => {
                 <a href="#">Bebés</a>
               </li>
             </ul>
-          </div>
+          </div> */}
           <div className="footer-section">
             <h2>Preguntas Frecuentes</h2>
             <ul>
               <li>
-                <Link to={"https://maps.app.goo.gl/J1FWDbGwSqTT5VbcA"}>
-                  ¿Cómo realizar un pedido?
-                </Link>
+                <Link to={"/faq"}>¿Cómo realizar un pedido?</Link>
               </li>
               <li>
-                <Link to={"https://maps.app.goo.gl/J1FWDbGwSqTT5VbcA"}>
-                  Política de devoluciones
-                </Link>
+                <Link to={"/faq"}>Política de devoluciones</Link>
               </li>
               <li>
-                <Link to={"https://maps.app.goo.gl/J1FWDbGwSqTT5VbcA"}>
-                  Términos y condiciones
-                </Link>
+                <Link to={"/faq"}>Términos y condiciones</Link>
               </li>
             </ul>
           </div>

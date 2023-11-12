@@ -16,7 +16,6 @@ const theme = createTheme({
   },
 });
 const Colores = ({ colores }) => {
-  console.log("colores:", colores);
   return (
     <ThemeProvider theme={theme}>
       <Stack direction="row" spacing={2} justifyContent={"center"}>

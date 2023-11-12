@@ -5,5 +5,17 @@ import ProductDetail from "./ProductDetail";
 import Faq from "./Faq";
 import ComoComprar from "./ComoComprar";
 import Ingresar from "./Ingresar";
+import Login from "./Login";
+import PrivatePage from "./PrivatePage";
 
-export { Home, Contact, ProductDetail, Cart, Faq, ComoComprar, Ingresar };
+export {
+  Home,
+  Contact,
+  ProductDetail,
+  Cart,
+  Faq,
+  ComoComprar,
+  Ingresar,
+  Login,
+  PrivatePage,
+};

@@ -3,9 +3,8 @@ import { useGlobalContext } from "../context/GlobalContextProvider"; */
 import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
-import Toolbar from "@mui/material/Toolbar";
 import { Link } from "react-router-dom";
-import PersonIcon from "@mui/icons-material/Person";
+/* import PersonIcon from "@mui/icons-material/Person"; */
 import MenuIcon from "@mui/icons-material/Menu";
 
 import "../../styles/header/header.css";
@@ -15,6 +14,11 @@ import { productsScargo } from "../../productsScargo";
 import { useGlobalContext } from "../../context/GlobalContextProvider";
 import CartBuy from "../Home/CartBuy.jsx";
 
+import { Menu, MenuItem } from "@mui/material";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import Button from "@mui/material/Button";
+import Fade from "@mui/material/Fade";
+
 const Header = () => {
   /* const { nombre } = useGlobalContext(); */
   const [searchString, setSearchString] = useState("");
@@ -22,8 +26,20 @@ const Header = () => {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const { productsSearch } = useGlobalContext();
+  const { productsSearch, isLoggedIn, logout } = useGlobalContext();
 
+  //login
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const open = Boolean(anchorEl);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  //
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -33,8 +49,6 @@ const Header = () => {
   };
 
   useEffect(() => {
-    console.log("me ejecuto");
-
     setListaProductos(
       productsScargo.filter((producto) =>
         producto.title.toLowerCase().includes(searchString.toLowerCase())
@@ -43,7 +57,7 @@ const Header = () => {
     productsSearch(listaProductos);
   }, [searchString]);
 
-  console.log("listaProductos: ", listaProductos);
+  console.log("isLoggedIn: ", isLoggedIn);
   return (
     <>
       <header>
@@ -57,25 +71,19 @@ const Header = () => {
                 </h1>
               </Link>
             </div>
-            {/* <input
-              type="text"
-              placeholder="Buscar..."
-              className="search-input"
-            /> */}
+
             <div>
-              <Toolbar>
-                <Search>
-                  <SearchIconWrapper>
-                    <SearchIcon />
-                  </SearchIconWrapper>
-                  <StyledInputBase
-                    placeholder="Search…"
-                    inputProps={{ "aria-label": "search" }}
-                    value={searchString}
-                    onChange={handleFilterProducto}
-                  />
-                </Search>
-              </Toolbar>
+              <Search>
+                <SearchIconWrapper>
+                  <SearchIcon />
+                </SearchIconWrapper>
+                <StyledInputBase
+                  placeholder="Search…"
+                  inputProps={{ "aria-label": "search" }}
+                  value={searchString}
+                  onChange={handleFilterProducto}
+                />
+              </Search>
             </div>
             <div className="menu-toggle" onClick={toggleMobileMenu}>
               <MenuIcon fontSize="large" />
@@ -84,18 +92,123 @@ const Header = () => {
               <nav className={`nav ${isMobileMenuOpen ? "open" : ""}`}>
                 <ul>
                   <li>
-                    <Link to={"/comoComprar"}>COMO COMPRAR</Link>
-                  </li>
-                  <li>
-                    <Link to={"/faq"}>FAQ</Link>
-                  </li>
-                  <li>
-                    <Link to={"/contact"}>CONTACTO</Link>
-                  </li>
-                  <li>
-                    <Link to={"/ingresar"}>
-                      <PersonIcon />
+                    <Link
+                      to={"/comoComprar"}
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                      }}
+                    >
+                      COMO COMPRAR
                     </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to={"/faq"}
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                      }}
+                    >
+                      FAQ
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to={"/contact"}
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                      }}
+                    >
+                      CONTACTO
+                    </Link>
+                  </li>
+                  <li>
+                    {/* <Link to={"/login"}>
+                      <PersonIcon />
+                    </Link> */}
+
+                    {/* {isLoggedIn ? (
+                      <Menu id="account-menu" keepMounted>
+                        <MenuItem onClick={logout}>Cerrar sesión</MenuItem>
+                      </Menu>
+                    ) : (
+                      <Link to="/login">
+                        <AccountCircleIcon />
+                      </Link>
+                    )} */}
+                    {/* <IconButton
+                      color="inherit"
+                      aria-label="Account"
+                      aria-controls="account-menu"
+                    >
+                      <AccountCircleIcon />
+                    </IconButton>
+                    {isLoggedIn ? (
+                      <Menu id="account-menu" keepMounted>
+                        <MenuItem onClick={logout}>Cerrar sesión</MenuItem>
+                      </Menu>
+                    ) : (
+                      <Menu id="account-menu" keepMounted>
+                        <Link
+                          to="/login"
+                          style={{ textDecoration: "none", color: "inherit" }}
+                        >
+                          <MenuItem>Iniciar sesión</MenuItem>
+                        </Link>
+                      </Menu>
+                    )} */}
+                  </li>
+                  <li>
+                    <Button
+                      id="fade-button"
+                      aria-controls={open ? "fade-menu" : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={open ? "true" : undefined}
+                      onClick={handleClick}
+                    >
+                      <AccountCircleIcon />
+                    </Button>
+                    <Menu
+                      /* id="fade-menu"
+                      MenuListProps={{
+                        "aria-labelledby": "fade-button",
+                      }}
+                      anchorEl={anchorEl}
+                      open={open}
+                      onClose={handleClose}
+                      TransitionComponent={Fade} */
+                      id="fade-menu"
+                      MenuListProps={{
+                        "aria-labelledby": "fade-button",
+                      }}
+                      anchorEl={anchorEl}
+                      open={open}
+                      onClose={handleClose}
+                      TransitionComponent={Fade}
+                    >
+                      {!isLoggedIn ? (
+                        <Link
+                          to="/login"
+                          style={{ textDecoration: "none", color: "inherit" }}
+                        >
+                          <MenuItem
+                            onClick={() => {
+                              handleClose();
+                              setIsMobileMenuOpen(false);
+                            }}
+                          >
+                            Iniciar sesión
+                          </MenuItem>
+                        </Link>
+                      ) : (
+                        <MenuItem
+                          onClick={() => {
+                            logout(), handleClose;
+                          }}
+                        >
+                          Cerrar sesion
+                        </MenuItem>
+                      )}
+                    </Menu>
                   </li>
                 </ul>
               </nav>
@@ -104,71 +217,6 @@ const Header = () => {
           </div>
         </div>
       </header>
-      {/*  <header className="header">
-        <div className="logo">
-          <Link to={"/home"}>
-            <ChildCareIcon />
-            <h1>Scargo</h1>
-          </Link>
-        </div>
-        <div className="search">
-          <Toolbar>
-            <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ "aria-label": "search" }}
-                value={searchString}
-                onChange={handleFilterProducto}
-              />
-            </Search>
-          </Toolbar>
-        </div>
-
-        <div className="links">
-          <ul>
-            <li>
-              <Link to={"/comoComprar"}>COMO COMPRAR</Link>
-            </li>
-            <li>
-              <Link to={"/faq"}>FAQ</Link>
-            </li>
-            <li>
-              <Link to={"/faq"}>CONTACTO</Link>
-            </li>
-            <li>
-              <Link to={"/ingresar"}>
-                <PersonIcon />
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </header> */}
-      {/* <header>
-        <img src={shield} />
-        <h1>{nombre}</h1>
-        <h2>HEADER</h2>
-      </header>
-      <Toolbar>
-        <IconButton
-          size="large"
-          edge="start"
-          color="inherit"
-          aria-label="open drawer"
-          sx={{ mr: 2 }}
-        ></IconButton>
-        <Search>
-          <SearchIconWrapper>
-            <SearchIcon />
-          </SearchIconWrapper>
-          <StyledInputBase
-            placeholder="Search…"
-            inputProps={{ "aria-label": "search" }}
-          />
-        </Search>
-      </Toolbar> */}
     </>
   );
 };
@@ -184,15 +232,23 @@ const Search = styled("div")(({ theme }) => ({
   },
   marginRight: theme.spacing(0),
   marginLeft: 0,
-  width: "50vw",
+  width: "30vw",
+  /*  [theme.breakpoints.up("sm")]: {
+    marginLeft: theme.spacing(0),
+    width: "50vw",
+  }, */
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(0),
-    width: "25vw",
+    width: "35vw",
+  },
+  [theme.breakpoints.up("md")]: {
+    width: "auto",
+    height: "20px",
   },
 }));
 
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
+const SearchIconWrapper = styled("div")(() => ({
+  padding: "0px 10px",
   height: "100%",
   position: "absolute",
   pointerEvents: "none",
@@ -204,11 +260,15 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
   "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
+    /* padding: theme.spacing(1, 1, 1, 0), */
+    padding: theme.spacing("auto"),
     // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(1)})`,
+    paddingLeft: `calc(1em + ${theme.spacing(3)})`,
     transition: theme.transitions.create("width"),
     width: "100%",
+    /*  [theme.breakpoints.up("sm")]: {
+     
+    }, */
     [theme.breakpoints.up("md")]: {
       width: "25ch",
     },

@@ -6,16 +6,27 @@ import { productsScargo } from "../productsScargo";
 import "../styles/productDetail/productDetail.css";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 import Medidas from "../components/productDetail/Medidas";
 import Colores from "../components/productDetail/Colores";
 
 const ProductDetail = () => {
   /* const {id} = useParams()  desestrucutramos al id, forma alt mejor*/
   const rute = useParams();
+  const { handleAddProduct, handleRemoveProduct, cart } = useGlobalContext();
+
   const productFound = productsScargo.find(
     (product) => product.id === Number(rute.id)
   );
-  const { handleAddProduct } = useGlobalContext();
+
+  /*  {
+    cart ? console.log(cart[0].quantity, "productFound:", productFound) : null;
+  } */
+  const productFoundInCart =
+    cart.length > 0
+      ? cart.find((product) => product.id === productFound.id)
+      : "";
+  /* console.log("productFoundInCart", productFoundInCart.quantity); */
 
   return (
     <div>
@@ -33,21 +44,35 @@ const ProductDetail = () => {
               <Medidas talles={productFound.talles} />
               <h3>Colores:</h3>
               <Colores colores={productFound.colores} />
-              <h3>Precio: $ {productFound.price}</h3>
+              <h3>
+                Precio: $ {productFound.price} Cantidad:
+                {productFoundInCart ? productFoundInCart.quantity : ""}
+              </h3>
               <h3>Añadir al carrito:</h3>
-              <Fab
-                sx={{
-                  zIndex: 0,
-                }}
-                size="medium"
-                color="primary"
-                aria-label="add"
-              >
-                <AddIcon onClick={() => handleAddProduct(productFound.id)} />{" "}
-              </Fab>
-              {/* <button onClick={() => handleAddProduct(productFound.id)}>
-                Añadir al carrito
-              </button> */}
+              <div>
+                <Fab
+                  sx={{
+                    zIndex: 0,
+                  }}
+                  size="medium"
+                  color="primary"
+                  aria-label="add"
+                >
+                  <AddIcon onClick={() => handleAddProduct(productFound.id)} />{" "}
+                </Fab>
+                <Fab
+                  sx={{
+                    zIndex: 0,
+                  }}
+                  size="medium"
+                  color="primary"
+                  aria-label="add"
+                >
+                  <RemoveIcon
+                    onClick={() => handleRemoveProduct(productFound.id)}
+                  />{" "}
+                </Fab>
+              </div>
             </div>
           </div>
         </div>
