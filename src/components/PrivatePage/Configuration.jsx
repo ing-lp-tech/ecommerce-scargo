@@ -1,8 +1,8 @@
+// En ConfiguracionStock.js
+
 import { useState } from "react";
-import "../../styles/privatePage/selectionStock.css";
 
 // eslint-disable-next-line react/prop-types
-
 const ConfiguracionStock = ({ onConfiguracionChange }) => {
   const [configuracion, setConfiguracion] = useState({
     talles: [],
@@ -12,13 +12,26 @@ const ConfiguracionStock = ({ onConfiguracionChange }) => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
-    // Validar que solo se ingresen números separados por coma
-    if (/^[0-9,]*$/.test(value)) {
+    // Validar el tipo de entrada según el nombre del campo
+    const validatedValue =
+      name === "talles" ? validateNumeric(value) : validateString(value);
+
+    if (validatedValue !== null) {
       setConfiguracion((prevConfig) => ({
         ...prevConfig,
-        [name]: value.split(",").map((item) => item.trim()),
+        [name]: validatedValue.split(",").map((item) => item.trim()),
       }));
     }
+  };
+
+  const validateNumeric = (input) => {
+    // Validar que el input solo contenga números y comas
+    return /^[0-9, ]*$/.test(input) ? input : null;
+  };
+
+  const validateString = (input) => {
+    // Validar que el input solo contenga letras, espacios y comas
+    return /^[a-zA-Z, ]*$/.test(input) ? input : null;
   };
 
   const handleConfiguracionSubmit = (e) => {

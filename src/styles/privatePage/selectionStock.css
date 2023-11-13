@@ -1,7 +1,8 @@
 /* En SeleccionStock.css */
 
-/* div {
+/*div {
   margin-top: 20px;
+  text-align: center;
 } */
 
 table {
@@ -22,6 +23,13 @@ th {
   color: white;
 }
 
-select {
+input {
+  width: 80px; /* Ajusta el ancho según tus necesidades */
   padding: 8px;
+}
+
+@media (max-width: 600px) {
+  input {
+    width: 100%;
+  }
 }

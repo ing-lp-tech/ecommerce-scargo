@@ -2,8 +2,8 @@
 
 /* div {
   margin-bottom: 20px;
+  text-align: center;
 } */
-
 form {
   display: flex;
   flex-direction: column;
@@ -31,4 +31,10 @@ button {
 
 button:hover {
   background-color: #45a049;
+}
+
+@media (max-width: 600px) {
+  form {
+    max-width: 100%;
+  }
 }
