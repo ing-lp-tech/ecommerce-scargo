@@ -1,13 +1,24 @@
-import { useGlobalContext } from "../context/GlobalContextProvider";
+/* import { useGlobalContext } from "../context/GlobalContextProvider"; */
 import { useState } from "react";
+import SeleccionStock from "../components/PrivatePage/SelectionStock";
+import ConfiguracionStock from "../components/PrivatePage/Configuration";
 
 const PrivatePage = () => {
-  const { username } = useGlobalContext();
-  const [stock, setStock] = useState({
-    tallas: ["S", "M", "L"],
+  const [configuracion, setConfiguracion] = useState({
+    talles: ["S", "M", "L"],
     colores: ["Rojo", "Azul", "Verde"],
+  });
+
+  const [stock, setStock] = useState({
     inventario: {},
   });
+
+  const handleConfiguracionChange = (nuevaConfiguracion) => {
+    setConfiguracion(nuevaConfiguracion);
+
+    // Reiniciar el inventario al cambiar la configuración
+    setStock({ inventario: {} });
+  };
 
   const handleCantidadChange = (talla, color, cantidad) => {
     setStock((prevStock) => ({
@@ -21,50 +32,17 @@ const PrivatePage = () => {
       },
     }));
   };
-  console.log(username);
+
   return (
     <div>
-      <h1>Stock de Productos</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Talla</th>
-            {stock.colores.map((color) => (
-              <th key={color}>{color}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {stock.tallas.map((talla) => (
-            <tr key={talla}>
-              <td>{talla}</td>
-              {stock.colores.map((color) => (
-                <td key={color}>
-                  <select
-                    onChange={(e) =>
-                      handleCantidadChange(
-                        talla,
-                        color,
-                        parseInt(e.target.value, 10)
-                      )
-                    }
-                    value={stock.inventario[talla]?.[color] || 0}
-                  >
-                    {[...Array(10).keys()].map((cantidad) => (
-                      <option key={cantidad} value={cantidad}>
-                        {cantidad}
-                      </option>
-                    ))}
-                  </select>
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <ConfiguracionStock onConfiguracionChange={handleConfiguracionChange} />
+      <SeleccionStock
+        talles={configuracion.talles}
+        colores={configuracion.colores}
+        onCantidadChange={handleCantidadChange}
+      />
       <pre>{JSON.stringify(stock, null, 2)}</pre>
     </div>
   );
 };
-
 export default PrivatePage;
