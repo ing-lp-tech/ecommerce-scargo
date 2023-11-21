@@ -57,7 +57,7 @@ const Header = () => {
     productsSearch(listaProductos);
   }, [searchString]);
 
-  console.log("isLoggedIn: ", isLoggedIn);
+  /* console.log("isLoggedIn: ", isLoggedIn); */
   return (
     <>
       <header>
@@ -113,7 +113,7 @@ const Header = () => {
                   </li>
                   <li>
                     <Link
-                      to={"/contact"}
+                      to={"/usuarios_registrados"}
                       onClick={() => {
                         setIsMobileMenuOpen(false);
                       }}

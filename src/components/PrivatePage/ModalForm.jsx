@@ -6,10 +6,10 @@ import SeleccionStock from "./SelectionStock";
 const ModalForm = ({ open, onClose, onSave }) => {
   const [formState, setFormState] = useState({
     fecha: "",
-    cantMetros: 0,
-    cantPrendas: 0,
-    cantTalles: 0,
-    cantColores: 0,
+    cantMetros: "",
+    cantPrendas: "",
+    cantTalles: "",
+    cantColores: "",
     configuracion: {
       talles: ["S", "M", "L"],
       colores: ["Rojo", "Azul", "Verde"],
@@ -28,8 +28,6 @@ const ModalForm = ({ open, onClose, onSave }) => {
       fecha: "",
       cantMetros: 0,
       cantPrendas: 0,
-      cantTalles: 0,
-      cantColores: 0,
     });
   };
 

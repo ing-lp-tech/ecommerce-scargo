@@ -37,8 +37,6 @@ const Carousel = () => {
     );
   };
 
-  console.log(images);
-
   useEffect(() => {
     const interval = setInterval(handleNext, 5000); // Cambiar automáticamente cada 5 segundos
 

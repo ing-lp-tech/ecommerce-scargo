@@ -26,9 +26,7 @@ const TablaInventario = ({ inventario, onEliminar, onModificar }) => {
           <th>Fecha</th>
           <th>Cant. Metros</th>
           <th>Cant. Prendas</th>
-          <th>Cant. Talles</th>
-          <th>Cant. Colores</th>
-          <th>Stock</th>
+          <th>Detalle</th>
           <th>Acciones</th>
         </tr>
       </thead>
@@ -39,19 +37,25 @@ const TablaInventario = ({ inventario, onEliminar, onModificar }) => {
             <td>{item.fecha}</td>
             <td>{item.cantMetros}</td>
             <td>{item.cantPrendas}</td>
-            <td>{item.cantTalles}</td>
-            <td>{item.cantColores}</td>
             <td>
-              {Object.entries(item.inventario).map(([clave, valores]) => (
-                <div key={clave}>
-                  <p>Talle: {clave}</p>
-                  {Object.entries(valores).map(([propiedad, valor]) => (
-                    <p key={propiedad}>
-                      {propiedad}: {valor}
-                    </p>
-                  ))}
-                </div>
-              ))}
+              {Object.entries(item.inventario).map(([clave, valores]) => {
+                let totalCantidad = 0; // Variable para almacenar la cantidad total
+
+                return (
+                  <div key={clave}>
+                    <p>Talle: {clave}</p>
+                    {Object.entries(valores).map(([propiedad, valor]) => {
+                      totalCantidad += valor;
+
+                      return (
+                        <p key={propiedad}>
+                          {propiedad}: {valor}
+                        </p>
+                      );
+                    })}
+                  </div>
+                );
+              })}
             </td>
             <td>
               {selectedRow === item.id ? (

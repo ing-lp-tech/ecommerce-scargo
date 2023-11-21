@@ -22,46 +22,114 @@ const GlobalContextProvider = ({ children }) => {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
   //
-  const handleAddProduct = (id) => {
+  const handleAddProduct = (id, talla) => {
     const productFound = productsScargo.find(
       (prod) => Number(prod.id) === Number(id)
     );
-    console.log("productFound:", productFound);
+    console.log("talla:", talla);
+    const existingProduct = cart.find(
+      (item) => item.id === id && item.talle === talla
+    );
+    console.log("existingProduct:", existingProduct);
+    if (existingProduct) {
+      setCart((prevCart) =>
+        prevCart.map((item) =>
+          item.id === id && item.talle === talla
+            ? { ...item, cantidad: item.cantidad + 1 }
+            : item
+        )
+      );
+    } else {
+      setCart((prevCart) => [
+        ...prevCart,
+        {
+          id: productFound.id,
+          title: productFound.title,
+          description: productFound.description,
+          talle: talla,
+          precio: productFound.price,
+          cantidad: 1,
+          images: productFound.images,
+        },
+      ]);
+    }
+
+    /*  const productFound = productsScargo.find(
+      (prod) => Number(prod.id) === Number(id)
+    );
+
+    console.log("talla:", talla);
+
     const isInCart = cart.find((producto) => producto.id == id);
-    console.log("isInCart:", isInCart);
+
     if (isInCart) {
       setCart(
         cart.map((producto) => {
           if (producto.id === id) {
-            producto.quantity++;
+            producto.quantityStock++;
           }
           return producto;
         })
       );
     } else {
-      setCart([...cart, { ...productFound, quantity: 1 }]);
-    }
+      setCart([...cart, { ...productFound, quantityStock: 1 }]);
+    } */
   };
-  const handleRemoveProduct = (id) => {
+
+  console.log("cart:", cart);
+
+  const handleRemoveProduct = (id, talla) => {
     const productFound = productsScargo.find(
       (prod) => Number(prod.id) === Number(id)
     );
-    console.log("productFound:", productFound);
+    console.log("talla:", talla);
+    const existingProduct = cart.find(
+      (item) => item.id === id && item.talle === talla
+    );
+    console.log("existingProduct:", existingProduct);
+    if (existingProduct) {
+      setCart((prevCart) =>
+        prevCart.map((item) =>
+          item.id === id && item.talle === talla
+            ? { ...item, cantidad: item.cantidad - 1 }
+            : item
+        )
+      );
+    } else {
+      setCart((prevCart) => [
+        ...prevCart,
+        {
+          id: productFound.id,
+          title: productFound.title,
+          description: productFound.description,
+          talle: talla,
+          precio: productFound.price,
+          cantidad: 1,
+          images: productFound.images,
+        },
+      ]);
+    }
+  };
+  /* const handleRemoveProduct = (id) => {
+    const productFound = productsScargo.find(
+      (prod) => Number(prod.id) === Number(id)
+    );
+
     const isInCart = cart.find((producto) => producto.id == id);
-    console.log("isInCart:", isInCart);
+
     if (isInCart) {
       setCart(
         cart.map((producto) => {
           if (producto.id === id) {
-            producto.quantity--;
+            producto.cantidad--;
           }
           return producto;
         })
       );
     } else {
-      setCart([...cart, { ...productFound, quantity: 1 }]);
+      setCart([...cart, { ...productFound, cantidad: 1 }]);
     }
-  };
+  }; */
 
   const productsSearch = (prod) => {
     setProdSearch(prod);
@@ -86,7 +154,7 @@ const GlobalContextProvider = ({ children }) => {
   //
 
   const nombre = "luis";
-  console.log("cart:", cart);
+
   return (
     <GlobalContext.Provider
       value={{

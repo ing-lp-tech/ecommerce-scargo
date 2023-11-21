@@ -13,7 +13,7 @@ import Colores from "../components/productDetail/Colores";
 const ProductDetail = () => {
   /* const {id} = useParams()  desestrucutramos al id, forma alt mejor*/
   const rute = useParams();
-  const { handleAddProduct, handleRemoveProduct, cart } = useGlobalContext();
+  const { cart } = useGlobalContext();
 
   const productFound = productsScargo.find(
     (product) => product.id === Number(rute.id)
@@ -26,7 +26,16 @@ const ProductDetail = () => {
     cart.length > 0
       ? cart.find((product) => product.id === productFound.id)
       : "";
-  /* console.log("productFoundInCart", productFoundInCart.quantity); */
+
+  /*   const cantidadObjetosId = cart.filter(
+    (producto) => producto.id === productFound.id
+  ).length; */
+
+  const cantidadObjetosId = cart.reduce(
+    (total, producto) =>
+      producto.id === productFound.id ? total + producto.cantidad : total,
+    0
+  );
 
   return (
     <div>
@@ -40,15 +49,16 @@ const ProductDetail = () => {
 
             <div className="productDescription">
               <h2>Descripcion: {productFound.description}</h2>
-              <h3>Medidas:</h3>
-              <Medidas talles={productFound.talles} />
-              <h3>Colores:</h3>
-              <Colores colores={productFound.colores} />
+              <h3>Talles:</h3>
+              <Medidas talles={productFound.stock} />
+              {/* <h3>Colores:</h3>
+              <Colores colores={productFound.colores} /> */}
               <h3>
-                Precio: $ {productFound.price} Cantidad:
-                {productFoundInCart ? productFoundInCart.quantity : ""}
+                Precio: $ {productFound.price} c/u
+                {/* {productFoundInCart ? productFoundInCart.quantity : ""} */}
               </h3>
-              <h3>Añadir al carrito:</h3>
+              <h3>Cantidad:{cantidadObjetosId}</h3>
+              {/* <h3>Añadir al carrito:</h3>
               <div>
                 <Fab
                   sx={{
@@ -72,7 +82,7 @@ const ProductDetail = () => {
                     onClick={() => handleRemoveProduct(productFound.id)}
                   />{" "}
                 </Fab>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
