@@ -26,11 +26,11 @@ const GlobalContextProvider = ({ children }) => {
     const productFound = productsScargo.find(
       (prod) => Number(prod.id) === Number(id)
     );
-    console.log("talla:", talla);
+
     const existingProduct = cart.find(
       (item) => item.id === id && item.talle === talla
     );
-    console.log("existingProduct:", existingProduct);
+
     if (existingProduct) {
       setCart((prevCart) =>
         prevCart.map((item) =>
@@ -76,17 +76,15 @@ const GlobalContextProvider = ({ children }) => {
     } */
   };
 
-  console.log("cart:", cart);
-
   const handleRemoveProduct = (id, talla) => {
     const productFound = productsScargo.find(
       (prod) => Number(prod.id) === Number(id)
     );
-    console.log("talla:", talla);
+
     const existingProduct = cart.find(
       (item) => item.id === id && item.talle === talla
     );
-    console.log("existingProduct:", existingProduct);
+
     if (existingProduct) {
       setCart((prevCart) =>
         prevCart.map((item) =>

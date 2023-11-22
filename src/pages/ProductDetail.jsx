@@ -4,11 +4,9 @@ import { Error404 } from "../components";
 import { useGlobalContext } from "../context/GlobalContextProvider";
 import { productsScargo } from "../productsScargo";
 import "../styles/productDetail/productDetail.css";
-import Fab from "@mui/material/Fab";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
+
 import Medidas from "../components/productDetail/Medidas";
-import Colores from "../components/productDetail/Colores";
+/* import Colores from "../components/productDetail/Colores"; */
 
 const ProductDetail = () => {
   /* const {id} = useParams()  desestrucutramos al id, forma alt mejor*/
@@ -22,11 +20,11 @@ const ProductDetail = () => {
   /*  {
     cart ? console.log(cart[0].quantity, "productFound:", productFound) : null;
   } */
-  const productFoundInCart =
+  /*   const productFoundInCart =
     cart.length > 0
       ? cart.find((product) => product.id === productFound.id)
       : "";
-
+ */
   /*   const cantidadObjetosId = cart.filter(
     (producto) => producto.id === productFound.id
   ).length; */

@@ -8,16 +8,6 @@ import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 function CartItem({ nombre, precio, images, talles, id }) {
-  console.log(
-    "nombre",
-    nombre,
-    "precio",
-    precio,
-    "images:",
-    images,
-    "talles",
-    talles
-  );
   // eslint-disable-next-line no-undef
 
   const totals = Object.values(talles).map((talle) =>
@@ -79,8 +69,6 @@ const CartBuy = () => {
 
     return acc;
   }, []);
-
-  console.log("newCart:", newCart);
 
   return (
     <>
