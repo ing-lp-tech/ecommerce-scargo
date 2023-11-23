@@ -78,6 +78,7 @@ const CartBuy = () => {
       <input className="inputCar" id={cartCheckboxId} type="checkbox" />
       <aside className="cart">
         <h4>Carrito</h4>
+
         <ul>
           {newCart.map(({ title, id, precio, description, images, talles }) => (
             <CartItem

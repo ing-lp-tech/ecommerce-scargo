@@ -60,11 +60,11 @@
       0 0 7px 3px rgba(0, 234, 255, 0.6);
   }
   50% {
-    box-shadow: 0 0 5px 2px rgba(0, 255, 208, 0.973),
-      0 0 7px 3px rgba(0, 255, 221, 0.6);
+    box-shadow: 0 0 5px 2px rgba(0, 200, 255, 0.973),
+      0 0 7px 3px rgb(0, 174, 255);
   }
   100% {
-    box-shadow: 0 0 5px 2px rgb(60, 255, 0), 0 0 7px 3px rgba(47, 255, 0, 0.638);
+    box-shadow: 0 0 5px 2px rgb(43, 70, 246), 0 0 7px 3px rgb(48, 105, 179);
   }
 }
 

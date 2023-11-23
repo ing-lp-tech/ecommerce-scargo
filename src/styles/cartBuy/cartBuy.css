@@ -1,7 +1,7 @@
 .cart {
   background: #cdcbcb;
   display: none;
-  padding: 32px;
+  padding: 22px;
   position: fixed;
   right: 0px;
   top: 0px;
@@ -9,6 +9,7 @@
   z-index: 3;
   color: white;
   overflow-y: auto;
+  text-align: center;
 }
 
 .cart::-webkit-scrollbar {
@@ -73,7 +74,18 @@
 .cartItem {
   font-size: 12px;
   color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
+
+.cart h4 {
+  color: black;
+}
+
 /* .cartItem img {
   height: 50%;
 } */
