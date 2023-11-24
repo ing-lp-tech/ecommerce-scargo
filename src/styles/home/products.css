@@ -127,9 +127,16 @@
     width: 100vw;
   }
 } */
-@media (min-width: 769px) {
-  /* Estilos para pantallas grandes */
+/* @media (min-width: 769px) {
   .imageBienvenidos {
     width: 50vw;
+  }
+} */
+@media (max-width: 769px) {
+  /* Estilos para pantallas grandes */
+  .imageBienvenidos {
+    width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
   }
 }

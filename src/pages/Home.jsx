@@ -7,11 +7,13 @@ const Home = () => {
   const { prodSearch } = useGlobalContext();
   return (
     <div className="home">
-      <img
-        className="imageBienvenidos"
-        src="/imagenes/bienvenidoScargo.png"
-        alt=""
-      />
+      <div className="divImage">
+        <img
+          className="imageBienvenidos"
+          src="/imagenes/bienvenidoScargo.png"
+          alt=""
+        />
+      </div>
 
       <Carousel />
       <div className="products">

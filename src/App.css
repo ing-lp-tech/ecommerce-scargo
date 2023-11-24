@@ -9,3 +9,10 @@
 .pages {
   margin-top: 11vh;
 }
+
+@media (max-width: 768px) {
+  /* Estilos para pantallas grandes */
+  .pages {
+    margin-top: 8vh;
+  }
+}

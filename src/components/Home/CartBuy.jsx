@@ -78,21 +78,25 @@ const CartBuy = () => {
       <input className="inputCar" id={cartCheckboxId} type="checkbox" />
       <aside className="cart">
         <h4>Carrito</h4>
-
-        <ul>
-          {newCart.map(({ title, id, precio, description, images, talles }) => (
-            <CartItem
-              nombre={title}
-              id={id}
-              precio={precio}
-              key={id}
-              description={description}
-              images={images}
-              talles={talles}
-            />
-          ))}
-        </ul>
-
+        {cart.length > 0 ? (
+          <ul>
+            {newCart.map(
+              ({ title, id, precio, description, images, talles }) => (
+                <CartItem
+                  nombre={title}
+                  id={id}
+                  precio={precio}
+                  key={id}
+                  description={description}
+                  images={images}
+                  talles={talles}
+                />
+              )
+            )}
+          </ul>
+        ) : (
+          <h4>No hay productos seleccionados.</h4>
+        )}
         {/*  <button onClick={clearCart}>
           <ClearCartIcon />
         </button> */}

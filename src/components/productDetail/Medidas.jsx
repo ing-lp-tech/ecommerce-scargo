@@ -58,7 +58,12 @@ const Medidas = ({ talles }) => {
 
   return (
     <div className="talles">
-      <Stack direction="row" spacing={2} justifyContent={"center"}>
+      {/* <Stack direction="row" spacing={2} justifyContent={"center"}> */}
+      <Stack
+        direction={{ xs: "column", sm: "row" }} // Cambia la dirección en móvil y desktop
+        spacing={2}
+        justifyContent={"center"}
+      >
         {Object.entries(talles).map(([talla, cantidad]) => (
           <div className="talleIndividual" key={talla}>
             <h4>
